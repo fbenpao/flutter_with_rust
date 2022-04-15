@@ -13,7 +13,32 @@
 		97C146FC1CF9000F007C117D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FA1CF9000F007C117D /* Main.storyboard */; };
 		97C146FE1CF9000F007C117D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FD1CF9000F007C117D /* Assets.xcassets */; };
 		97C147011CF9000F007C117D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */; };
+		D6CD2B0F28095AE600B1B6A0 /* libnative_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6CD2B0B28095ACE00B1B6A0 /* libnative_static.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D6CD2B0828095ACE00B1B6A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6CD2B0328095ACE00B1B6A0 /* native.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA606566835DEAC3B2E0A336;
+			remoteInfo = "native-cdylib";
+		};
+		D6CD2B0A28095ACE00B1B6A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6CD2B0328095ACE00B1B6A0 /* native.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA605B49B6492969E816930C;
+			remoteInfo = "native-staticlib";
+		};
+		D6CD2B0C28095ADD00B1B6A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D6CD2B0328095ACE00B1B6A0 /* native.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA605B49B64990612177218A;
+			remoteInfo = "native-staticlib";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9705A1C41CF9048500538489 /* Embed Frameworks */ = {
@@ -42,6 +67,8 @@
 		97C146FD1CF9000F007C117D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6CD2B0228095A9100B1B6A0 /* bridge_generated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge_generated.h; sourceTree = "<group>"; };
+		D6CD2B0328095ACE00B1B6A0 /* native.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = native.xcodeproj; path = ../native/native.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6CD2B0F28095AE600B1B6A0 /* libnative_static.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,9 +97,11 @@
 		97C146E51CF9000F007C117D = {
 			isa = PBXGroup;
 			children = (
+				D6CD2B0328095ACE00B1B6A0 /* native.xcodeproj */,
 				9740EEB11CF90186004384FC /* Flutter */,
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
+				D6CD2B0E28095AE600B1B6A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,6 +116,7 @@
 		97C146F01CF9000F007C117D /* Runner */ = {
 			isa = PBXGroup;
 			children = (
+				D6CD2B0228095A9100B1B6A0 /* bridge_generated.h */,
 				97C146FA1CF9000F007C117D /* Main.storyboard */,
 				97C146FD1CF9000F007C117D /* Assets.xcassets */,
 				97C146FF1CF9000F007C117D /* LaunchScreen.storyboard */,
@@ -96,6 +127,22 @@
 				74858FAD1ED2DC5600515810 /* Runner-Bridging-Header.h */,
 			);
 			path = Runner;
+			sourceTree = "<group>";
+		};
+		D6CD2B0428095ACE00B1B6A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D6CD2B0928095ACE00B1B6A0 /* native.dylib */,
+				D6CD2B0B28095ACE00B1B6A0 /* libnative_static.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D6CD2B0E28095AE600B1B6A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +162,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				D6CD2B0D28095ADD00B1B6A0 /* PBXTargetDependency */,
 			);
 			name = Runner;
 			productName = Runner;
@@ -147,12 +195,35 @@
 			mainGroup = 97C146E51CF9000F007C117D;
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D6CD2B0428095ACE00B1B6A0 /* Products */;
+					ProjectRef = D6CD2B0328095ACE00B1B6A0 /* native.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				97C146ED1CF9000F007C117D /* Runner */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D6CD2B0928095ACE00B1B6A0 /* native.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = native.dylib;
+			remoteRef = D6CD2B0828095ACE00B1B6A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D6CD2B0B28095ACE00B1B6A0 /* libnative_static.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libnative_static.a;
+			remoteRef = D6CD2B0A28095ACE00B1B6A0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		97C146EC1CF9000F007C117D /* Resources */ = {
@@ -210,6 +281,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D6CD2B0D28095ADD00B1B6A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "native-staticlib";
+			targetProxy = D6CD2B0C28095ADD00B1B6A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		97C146FA1CF9000F007C117D /* Main.storyboard */ = {
